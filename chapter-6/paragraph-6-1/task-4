@@ -1,0 +1,68 @@
+let list = {
+    value: 1,
+    next: {
+        value: 2,
+        next: {
+            value: 3,
+            next: {
+                value: 4,
+                next: null
+            }
+        }
+    }
+};
+
+function printListRec(list) {
+
+    if (list.next === null) {
+        console.log(list.value);
+    } else {
+        console.log(list.value);
+        printList(list.next);
+    }
+}
+
+function printListRecReverse(list) {
+
+    if (list.next !== null) {
+        printListRecBack(list.next);
+    }
+
+    console.log(list.value);
+}
+
+function printListIterReverse(list) {
+    let element = list;
+    let arr = [];
+
+    while (true) {
+        if (element.next !== null) {
+            arr.push(element.value);
+            element = element.next;
+        } else {
+            arr.push(element.value);
+            break;
+        }
+    }
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+        console.log(arr[i]);
+    }
+}
+
+function printListIter(list) {
+    let element = list;
+    while (true) {
+        console.log(element.value);
+        if (element.next !== null) {
+            element = element.next;
+        } else {
+            break;
+        }
+    }
+}
+
+printListRec(list);
+printListIter(list);
+printListRecReverse(list);
+printListIterReverse(list);
